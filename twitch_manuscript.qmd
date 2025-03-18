@@ -1,0 +1,126 @@
+---
+title: "Réaliser un article scientifique avec `Quarto`"
+author: "Marie Vaugoyeau"
+date: "2025/03/18"
+date-format: "D MMMM YYYY"
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    papersize: letter
+execute: 
+  warning: false
+---
+
+# C'est quoi Quarto ?
+
+![](https://quarto.org/quarto.png)
+
+Après une dizaine d'année de développement sur `RMarkdown`, [Posit](https://posit.co/) (anciennement RStudio) [a annoncé en 2022](https://posit.co/blog/announcing-quarto-a-new-scientific-and-technical-publishing-system/) la naissance de `Quarto`.\
+Donc `Quarto` est l'héritier de [RMarkdown](https://quarto.org/quarto.png) qui combien le texte sous format [Markdown](https://quarto.org/docs/authoring/markdown-basics.html) et les portions de code appelé `chunk`.\
+Le code peut-être en `R` comme en `Python`.
+
+Comme `RMarkdown`, sa grande force est de rendre **reproductible**, **répétable** et **réutilisable** les lignes de codes.
+
+::: callout-tip
+## Innovation
+
+Il n'y aura pas ou peu d'innovations sur `RMarkdown` maintenant que `Quarto` existe.
+:::
+
+# Création d'un projet `Quarto`
+
+La grosse nouveauté entre `RMarkdown` et `Quarto` est que `Quarto` est une infrastructure plus large qui remplace le classique projet RStudio.
+
+Pour créer un projet `Quarto`, c'est très simple, il suffit de cliquer sur l'icône bleue projet ou `File > New Project...`.\
+Ensuite, il faut cliquer sur `Quarto project`. S'il n'apparaît pas ce que RStudio n'est pas à jour. Il est nécessaire de commencer par mettre à jour R et RStudio.
+
+Le projet créé contient trois fichiers :
+
+\_ Le fichier `_quarto.yml` qui contient les paramétrages du dossier\
+\_ Le fichier `nom_du_projet.qmd` qui est un document `Quarto` généré automatiquement\
+\_ Le fichier `nom_du_projet.Rproj`, le fichier du projet
+
+Le document `Quarto` généré automatiquement est très simple. Il est là pour comprendre le fonctionnement de base. Il est très utile pour apprendre à manipuler `Quarto`.
+
+# Lecture d'une fichier `Quarto`
+
+Les fichiers `Quarto` ont une composition classique : une en-tête `YAML` facultative avec un enchaînement de **texte** et de **blocs de codes**.
+
+Deux `vues` sont disponibles :
+
+\_ `Visual` : Qui ressemble à ce qui sera obtenu avec des clics boutons proches d'un logiciel de traitement texte tels que `Word`, `Mot`, `Writer`...\
+\_ `Source` : Qui contient le script en `Markdown`
+
+## En-tête `YAML` (facultative)
+
+Elle permet de paramétrer les sorties du document mais elle n'est pas obligatoire
+
+::: callout-important
+## Indentation
+
+Si l'indentation (les espaces avant le texte) n'a que peu d'importance dans le code `R`, elle est très importante en `YAML` et doit-être regardé avec attention !
+:::
+
+Le document généré automatiquement ne possède qu'un titre dans l'en-tête.
+
+## Syntaxe du texte
+
+Le texte en `Quarto`, utilise la [syntaxe `Markdown`](https://quarto.org/docs/authoring/markdown-basics.html) :
+
+\_ Les titres sont caractérisés par des `#` en fonction du niveau : `#Titre de niveau 1`, `##Titre de niveau 2`...\
+\_ La mise en forme du texte se fait avec les étoiles ou les impostrophes (apostrophe à l'envers) :
+
+-   Une étoile `*` avant et après la partie à valoriser permet de mettre en *italique* (codé `*italique*`)\
+-   Deux `**` avant et après mettent en **gras** (codé `**gras**`)\
+-   Trois `***` avant et après mettent en ***gras et italique*** (codé `***gras et italique***`)\
+-   Un **double espace** permet de passer à la ligne. Il faut donc toujours mettre deux espaces à la fin de chaque ligne. Sans ces espaces, toutes les lignes sont collées les unes à la suite des autres\
+-   Pour éditer un `format code` (sans qu'il se lance) pour présenter les packages, les fonctions ou les objets utilisés (comme fait dans ce document), il faut encadrer d'impostrophes
+
+Des images peuvent aussi être intégrées grâce à `![*légende_de_l_image*](adresse_de_l_image.format_de_l_image)`
+
+## Portion de code
+
+Le code est enregistré dans des chuncks délimités par trois impostrophes comme ci-dessous.\
+Les paramètres du chunk sont précédés de `#|`.\
+Cela permet de donner un nom au chunck avec `#| label: nom_du_chunk` ou de choisir les sorties `#| echo: true` : le code est affiché dans le format de sortie, `#| warning: false` : les messages de type `warning` ne sont pas affichés...\
+Touts les paramétrages peuvent se retrouver dans [le guide Quatro](https://quarto.org/docs/reference/cells/cells-knitr.html).
+
+```{r}
+#| echo: fenced
+#| label: nom_du_chunk
+#| warning: false
+
+1 + 1
+```
+
+::: callout-waring
+Si un des impostrophes est supprimé par erreur, le code ne peut pas se lancer !\
+Il faut toujours vérifier que les chunks soient bien fermés (fond d'une couleur différente).
+:::
+
+## Ajout d'une équation
+
+Dans la ligne avec le symbole dollar `Soit on peut choisir de les intégrer dans le texte : $Y = aX + b$` ou dans un bloc à part grâce au double dollar `$$ Z = Y + zb $$`
+
+![](img/equation.png)
+
+## Ajout de référence bibliographiques
+
+### Grâce à Zotero
+
+Montrer comment associer à Zotero : `Global Options > R Markdown > Citations` : association via Zotero Web grâce à une clé API
+
+Plus d’info sur le [tuto de Claire Della Vedova](https://delladata.fr/quarto-citations-et-references-bibliographiques/)
+
+### Grâce à une recherche
+
+Dans l'onglet `Visual`, cliquer sur `Insert` puis `Citation`.  
+Il est possible de chercher directement via le [DOI](https://fr.wikipedia.org/wiki/Digital_Object_Identifier) ou dans [Crossref](https://www.crossref.org/), [DataCite](https://datacite.org/) ou [PubMed](https://pubmed.ncbi.nlm.nih.gov/).   
+  
+
+## Ajout d'un lien vers une table ou un graphique  
+
+
+
+***Aller voir ce qui a été fait dans test_manuscrit avant de le supprimer.***
