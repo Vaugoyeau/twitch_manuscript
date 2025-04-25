@@ -99,19 +99,19 @@ Si un des impostrophes est supprimé par erreur, le code ne peut pas se lancer !
 Il faut toujours vérifier que les chunks soient bien fermés (fond d'une couleur différente).
 :::
 
-## Ajout d'une équation
-
+## Ajout d'une équation  
+  
 Dans la ligne avec le symbole dollar `Soit on peut choisir de les intégrer dans le texte : $Y = aX + b$` ou dans un bloc à part grâce au double dollar `$$ Z = Y + zb $$`
-
-![](img/equation.png)
+  
+![](img/equation.png)  
 
 ## Ajout de référence bibliographiques
 
 ### Grâce à Zotero
 
-Montrer comment associer à Zotero : `Global Options > R Markdown > Citations` : association via Zotero Web grâce à une clé API
-
-Plus d’info sur le [tuto de Claire Della Vedova](https://delladata.fr/quarto-citations-et-references-bibliographiques/)
+Association via Zotero Web grâce à une clé API : `Global Options > R Markdown > Citations`  
+  
+Plus d’info sur le [tuto de Claire Della Vedova](https://delladata.fr/quarto-citations-et-references-bibliographiques/)  
 
 ### Grâce à une recherche
 
@@ -119,8 +119,45 @@ Dans l'onglet `Visual`, cliquer sur `Insert` puis `Citation`.
 Il est possible de chercher directement via le [DOI](https://fr.wikipedia.org/wiki/Digital_Object_Identifier) ou dans [Crossref](https://www.crossref.org/), [DataCite](https://datacite.org/) ou [PubMed](https://pubmed.ncbi.nlm.nih.gov/).   
   
 
-## Ajout d'un lien vers une table ou un graphique  
+## Intégrer un graphique    
+Il y a deux possibilités pour générer un graphique :  
 
-
-
-***Aller voir ce qui a été fait dans test_manuscrit avant de le supprimer.***
+- Le coder dans le document Quarto   
+- Le coder dans un autre document Quarto puis l'intégrer dans celui de l'article   
+  
+Dans les deux cas, il faut faire le graphique dans un chunk en le nommant avec `label: fig-nom_du_graph`   
+  
+```{r}
+#| label: fig-iris
+#| echo: fenced
+  
+plot(iris)
+```
+  
+Si le graphique est généré dans un autre document, il peut être intégré grâce à `{{< embed nom_du_doc.qmd#fig-nom_du_graph >}}` codé `{{< embed 01_graph_explo.qmd#fig-graph_iris >}}` dans la [vidéo sur Twitch](https://www.twitch.tv/videos/2408949837).  
+  
+Pour ensuite faire un lien hypertexte vers un graphique, il suffit dans le texte de rajouter `@fig-nom_du_graph` codé `@fig-iris` dans la [vidéo](https://www.twitch.tv/videos/2408949837).  
+  
+# En savoir un peu plus sur moi  
+Bonjour, 
+  
+Je suis Marie Vaugoyeau et je suis disponible pour des **missions en freelance** d’**accompagnement à la formation** à R et à l’analyse de données et/ou en **programmation** (reprise de scripts, bonnes pratiques de codage, développement de package).  
+Ayant un **bagage recherche en écologie**, j’ai accompagné plusieurs chercheuses en biologie dans leurs analyses de données mais je suis ouverte à d’autres domaines.  
+  
+Vous pouvez retrouver mes offres [ici](https://marievaugoyeau.notion.site/MStats-Marie-Vaugoyeau-d69b566c83414152ac85eae012c970fb).  
+  
+**En plus de mes missions de consulting je diffuse mes savoirs en R et analyse de données sur plusieurs plateformes :**   
+  
+- J’ai écrit [un **livre** aux éditions ENI](https://www.editions-eni.fr/livre/langage-r-et-statistiques-initiation-a-l-analyse-de-donnees-9782409036934)  
+- Tous les mois je fais [un **live sur Twitch**](https://www.twitch.tv/marievaugoyeau/videos) pour parler d’un package de R, d’une analyse  
+- Je rédige une **newsletter** de manière irrégulière pour parler de mes **inspirations** et transmettre **des trucs et astuces sur R**. Pour s’y inscrire, [c’est par là](https://d1154691.sibforms.com/serve/MUIEAGj4fIubg6D4qHb7BoZSxNhzkV4p2L0I7GHpNopbqPeDS1J0SpOgaTDCavroygrDTCukB0La-8s1nsQw5wCANT5UP64en1GudsGbKhGVlwbvP_bJdAJ0ECF9BOZ1swRKEnKlnWzTHpLjknJvrCXiH_xw4F_go_2kVB0dWWrkJzRoE22BXImtgVOu29gBxx2hjFkINdeW7Cae?). J’ai aussi [un **blog**](https://mvaugoyeau.netlify.app/fr/) sur lequel vous pourrez retrouver une version de cet article.  
+  
+Pour en savoir encore un peu plus sur moi, il y a [LinkedIn](https://www.linkedin.com/in/marie-vaugoyeau-72ab64153/) et pour retrouver [tous ces liens et plus encore, c'est ici](https://linktr.ee/mstats)  
+  
+**N’hésitez pas à me contacter sur [marie.vaugoyeau@gmail.com](mailto:marie.vaugoyeau@gmail.com) !**  
+  
+Bonne journée   
+  
+Marie  
+  
+![](C:/Users\Marie\Dropbox\Mstats\Img\bandeauSignatureGmail.png)  
