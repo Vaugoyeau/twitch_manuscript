@@ -43,7 +43,7 @@ Le projet créé contient trois fichiers :
 
 Le document `Quarto` généré automatiquement est très simple. Il est là pour comprendre le fonctionnement de base. Il est très utile pour apprendre à manipuler `Quarto`.
 
-# Lecture d'une fichier `Quarto`
+# Lecture d'un fichier `Quarto`
 
 Les fichiers `Quarto` ont une composition classique : une en-tête `YAML` facultative avec un enchaînement de **texte** et de **blocs de codes**.
 
@@ -99,27 +99,27 @@ Si un des impostrophes est supprimé par erreur, le code ne peut pas se lancer !
 Il faut toujours vérifier que les chunks soient bien fermés (fond d'une couleur différente).
 :::
 
-## Ajout d'une équation  
+# Ajout d'une équation  
   
 Dans la ligne avec le symbole dollar `Soit on peut choisir de les intégrer dans le texte : $Y = aX + b$` ou dans un bloc à part grâce au double dollar `$$ Z = Y + zb $$`
   
 ![](img/equation.png)  
 
-## Ajout de référence bibliographiques
+# Ajout de référence bibliographiques
 
-### Grâce à Zotero
+## Grâce à Zotero
 
 Association via Zotero Web grâce à une clé API : `Global Options > R Markdown > Citations`  
   
 Plus d’info sur le [tuto de Claire Della Vedova](https://delladata.fr/quarto-citations-et-references-bibliographiques/)  
 
-### Grâce à une recherche
+## Grâce à une recherche
 
 Dans l'onglet `Visual`, cliquer sur `Insert` puis `Citation`.  
 Il est possible de chercher directement via le [DOI](https://fr.wikipedia.org/wiki/Digital_Object_Identifier) ou dans [Crossref](https://www.crossref.org/), [DataCite](https://datacite.org/) ou [PubMed](https://pubmed.ncbi.nlm.nih.gov/).   
   
 
-## Intégrer un graphique    
+# Intégrer un graphique    
 Il y a deux possibilités pour générer un graphique :  
 
 - Le coder dans le document Quarto   
